@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "github.com/husol/grpc-getting-started/proto";
+
+service HusService {
+  rpc GetMessage(MessageRequest) returns (MessageResponse);
+  rpc GetAccount(UserRequest) returns (UserResponse);
+}
+
+message MessageRequest {
+  string text = 1;
+}
+message MessageResponse {
+  string message = 1;
+}
+
+message UserRequest {
+  int64 id = 1;
+}
+message UserResponse {
+  string full_name = 1;
+  string birth_day = 2;
+  int32 point = 3;
+}
